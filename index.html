@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bava Sagar | 28 Years</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  background:#020617;
+  color:#E5E7EB;
+}
+
+.container{
+  padding:70px 10%;
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:20;
+  position: relative;
+}
+
+nav ul li{
+  display:inline-block;
+  margin-left:24px;
+}
+
+nav ul li a{
+  color:#9CA3AF;
+  text-decoration:none;
+  font-size:15px;
+}
+
+nav ul li a:hover{
+  color:#38BDF8;
+}
+
+#header{
+  height:100vh;
+}
+
+#header .container{
+  height:100%;
+  position:relative;
+}
+
+.hero{
+  height:100%;
+  min-height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.hero-text{
+  max-width:650px;
+  position: relative;
+  z-index: 20;
+}
+
+.hero-sub{
+  color:#9CA3AF;
+  font-size:18px;
+  letter-spacing:0.6px;
+  margin-bottom:14px;
+}
+
+.hero-text h1{
+  font-size:72px;
+  font-weight:700;
+  line-height:1.05;
+}
+
+.hero-text h1 span{
+  color:#38BDF8;
+}
+
+.hero-image{
+  position:absolute;
+  right:-120px;
+  bottom:0;
+  height:100vh;
+  display:flex;
+  align-items:flex-end;
+  pointer-events:none;
+  z-index:1;
+}
+
+.hero-image img{
+  height:95vh;
+  width:auto;
+  max-width:none;
+  filter: brightness(0.9) contrast(1.05) saturate(0.95);
+  mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  opacity:0.95;
+}
+
+.hero-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to left, rgba(2,6,23,0.6), rgba(2,6,23,0));
+}
+
+.sub-title{
+  font-size:46px;
+  font-weight:600;
+  margin-bottom:24px;
+}
+
+.desc{
+  color:#9CA3AF;
+  max-width:800px;
+  line-height:1.8;
+}
+
+.moments-grid{ 
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px; 
+}
+
+.moment-card{ 
+  border:1px solid #1E293B;
+  border-radius:10px;
+  background:#020617; 
+  display:flex;
+  flex-direction:column;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+  overflow:hidden;
+  height:100%;
+}
+
+.moment-text{ 
+  padding:18px; 
+}
+
+.moment-text h2{
+  font-size:16px;
+  font-weight:500;
+  margin-bottom:6px; 
+}
+
+.moment-text p{ 
+  font-size:14px; 
+  color:#9CA3AF; 
+}
+
+.moment-image{
+  margin-top:auto;
+  display:flex;
+  justify-content:center;
+  padding:16px;
+}
+
+.moment-image img{
+  width:100%;
+  max-width:520px;
+  max-height:300px;
+  object-fit:cover;
+  border-radius:4px;
+  filter: grayscale(65%) contrast(0.92) brightness(0.92);
+}
+
+#modalImage{
+  width:100%;
+  max-height:320px;
+  object-fit:cover;
+  border-radius:6px;
+  margin-top:16px;
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(2,6,23,0.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.modal-content{
+  background:#020617;
+  border:1px solid #1E293B;
+  border-radius:12px;
+  max-width:600px;
+  width:90%;
+  padding:24px;
+  position:relative;
+}
+
+.modal-content h2{
+  margin-bottom:10px;
+}
+
+.modal-content p{
+  color:#9CA3AF;
+  margin-bottom:16px;
+  line-height:1.7;
+}
+
+.modal-content img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius:8px;
+  border:1px solid #1E293B;
+}
+
+.close{
+  position:absolute;
+  top:12px;
+  right:16px;
+  font-size:22px;
+  color:#9CA3AF;
+  cursor:pointer;
+}
+
+footer{
+  border-top:1px solid #1E293B;
+  text-align:center;
+  padding:20px;
+  color:#9CA3AF;
+  font-size:14px;
+}
+
+@media (max-width:900px){
+  .hero{
+    flex-direction:column;
+    justify-content:center;
+    text-align:center;
+  }
+  .hero-image{
+    position:static;
+    height:auto;
+    margin-top:30px;
+    justify-content:center;
+  }
+
+  .hero-image img{
+    height:auto;
+    width:80%;
+    mask-image:none;
+    -webkit-mask-image:none;
+  }
+  .hero-text h1{
+    font-size:48px;
+  }
+
+  .container{
+    padding:50px 6%;
+  }
+
+  .sub-title{
+    font-size:34px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div id="header">
+  <div class="container">
+    <nav>
+      <h2>Sagar</h2>
+      <ul>
+        <li><a href="#moments">Moments</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#family">Family</a></li>
+        <li><a href="#final">Message</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-text">
+        <p class="hero-sub">28 Years of Character</p>
+        <h1>Bava <span>Sagar</span></h1>
+      </div>
+
+      <div class="hero-image">
+        <img src="images/bava.png" alt="Bava Sagar">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="moments">
+  <div class="container">
+    <h1 class="sub-title">Moments</h1>
+
+    <div class="moments-grid">
+      <a class="moment-card" onclick="openModal('Silent Support','Your support never demands attention — and that matters.','images/s2.png')">
+        <div class="moment-text">
+          <h2>Silent Support</h2>
+          <p>Your support never demands attention — and that matters.</p>
+        </div>
+        <div class="moment-image">
+          <img src="images/s2.png" alt="">
+        </div>
+      </a>
+      <a class="moment-card" onclick="openModal('Best Advice for the Future','The years ahead will bring growth, responsibility, and change.','images/s3.png')">
+        <div class="moment-text">
+          <h2>Best Advice for the Future</h2>
+          <p>The years ahead will bring growth, responsibility, and change.</p>
+        </div>
+        <div class="moment-image">
+          <img src="images/s3.png" alt="">
+        </div>
+      </a>
+
+      <div class="moment-card" onclick="openModal('Heartfelt Birthday Wish','Happy 28th Birthday. May life reward your patience and discipline.','images/s1.png')">
+        <div class="moment-text">
+          <h2>Heartfelt Birthday Wish</h2>
+          <p>Happy 28th Birthday. May life reward your patience.</p>
+        </div>
+        <div class="moment-image">
+          <img src="images/s1.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="achievements">
+  <div class="container">
+    <h1 class="sub-title">Achievements</h1>
+    <p class="desc">In 2024, the authority to sign with the green pen came from trust earned through discipline and consistency.</p>
+  </div>
+</div>
+
+<div id="family">
+  <div class="container">
+    <h1 class="sub-title">Family</h1>
+    <p class="desc">When you married my sister in 2022, you didn’t just join the family — you strengthened it.</p>
+  </div>
+</div>
+
+<div id="final">
+  <div class="container">
+    <h1 class="sub-title">Final Message</h1>
+    <p class="desc">This is not a gift.<br><br>This is respect, written quietly.<br><br>Happy 28th Birthday, Bava Sagar.</p>
+  </div>
+</div>
+
+<footer>© 2026 · Made with respect</footer>
+
+<div id="modal" class="modal" onclick="closeModal(event)">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalText"></p>
+    <img id="modalImage" src="" alt="">
+  </div>
+</div>
+
+<script>
+
+function openModal(title, text, image){
+  const modal = document.getElementById("modal");
+  const modalImage = document.getElementById("modalImage");
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalText").innerText = text;
+  modalImage.src=image;
+  modal.style.display="flex";
+  document.body.style.overflow="hidden";
+}
+function closeModal(e){
+  if(!e || e.target.id==="modal" || e.target.className==="close"){
+    document.getElementById("modal").style.display="none";
+    document.body.style.overflow="auto";
+  }
+}
+</script>
+</body>
+</html>
